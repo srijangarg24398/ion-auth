@@ -7,8 +7,10 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="loginWithFacebook()" *ngIf="!provider.loggedIn" >Login with facebook</button>
-  <button ion-button (click)="loginWithGoogle()" *ngIf="!provider.loggedIn" >Login with Google</button>
+  <button ion-button (click)="login('facebook')" *ngIf="!provider.loggedIn" ><ion-icon name="logo-facebook"></ion-icon></button>
+  <button ion-button (click)="login('google')" *ngIf="!provider.loggedIn" ><ion-icon name="logo-google"></ion-icon></button>
+  <button ion-button (click)="login('twitter')" *ngIf="!provider.loggedIn" ><ion-icon name="logo-twitter"></ion-icon></button>
+  <button ion-button (click)="login('github')" *ngIf="!provider.loggedIn" ><ion-icon name="logo-github"></ion-icon></button>
   <button ion-button (click)="logout()" *ngIf="provider.loggedIn" >Logout</button>
   	<ion-card *ngIf="provider.loggedIn">
 	  	<img src="{{provider.profilePicture}}"/>
