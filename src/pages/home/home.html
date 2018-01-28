@@ -1,14 +1,24 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+	<ion-title>
+	  Auth app
+	</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <button ion-button (click)="loginWithFacebook()" *ngIf="!provider.loggedIn" >Login with facebook</button>
+  <button ion-button (click)="loginWithGoogle()" *ngIf="!provider.loggedIn" >Login with Google</button>
+  <button ion-button (click)="logout()" *ngIf="provider.loggedIn" >Logout</button>
+  	<ion-card *ngIf="provider.loggedIn">
+	  	<img src="{{provider.profilePicture}}"/>
+	  	<ion-card-content>
+			<ion-card-title>
+				{{provider.name}}  	
+			</ion-card-title>
+			<p style="text-align: center;">
+				{{provider.email}}
+			</p>
+	  	</ion-card-content>
+	</ion-card>
 </ion-content>
